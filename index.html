@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>System Status Board</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f5f7f9; display: flex; justify-content: center; padding-top: 50px; }
+        .board { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); width: 400px; }
+        h2 { color: #333; margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .service-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding: 10px; background: #fafafa; border-radius: 8px; }
+
+        /* Hidden Checkbox logic */
+        input[type="checkbox"] { display: none; }
+
+        /* Default Status: Offline (Red) */
+        .status-label { cursor: pointer; padding: 5px 12px; border-radius: 20px; font-size: 14px; font-weight: bold; background: #ffebee; color: #d32f2f; transition: 0.3s; }
+        .status-label::after { content: "Offline"; }
+
+        /* Active Status: Operational (Green) */
+        input[type="checkbox"]:checked + .status-label { background: #e8f5e9; color: #2e7d32; }
+        input[type="checkbox"]:checked + .status-label::after { content: "Operational"; }
+    </style>
+</head>
+<body>
+
+<div class="board">
+    <h2>System Service Status</h2>
+    <p style="font-size: 0.85em; color: #777; margin-bottom: 20px;">Manual Status Toggle (Admin View)</p>
+
+    <div class="service-row">
+        <span>Payment Gateway</span>
+        <label>
+            <input type="checkbox" checked>
+            <span class="status-label"></span>
+        </label>
+    </div>
+
+    <div class="service-row">
+        <span>Customer Database</span>
+        <label>
+            <input type="checkbox" checked>
+            <span class="status-label"></span>
+        </label>
+    </div>
+
+    <div class="service-row">
+        <span>Internal API</span>
+        <label>
+            <input type="checkbox">
+            <span class="status-label"></span>
+        </label>
+    </div>
+</div>
+
+</body>
+</html>
